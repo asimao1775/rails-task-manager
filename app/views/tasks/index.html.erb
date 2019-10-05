@@ -1,0 +1,13 @@
+<h1>To do Manager</h1>
+  <p>Task List</p>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li><%= task.title %>
+        <%= link_to("Details", "tasks/#{task.id}") %>
+        <%= link_to("Edit", "tasks/#{task.id}/edit") %>
+        <%= link_to("Delete", "tasks/#{task.id}", method: :delete) %>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to("New Task", "tasks/new") %>
+
