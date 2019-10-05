@@ -23,13 +23,17 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    if @task.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def destroy
     @task = Task.find(params[:id])
     redirect_to root_path
   end
-
 
   private
 
